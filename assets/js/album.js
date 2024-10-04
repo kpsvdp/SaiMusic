@@ -6,7 +6,7 @@ const albums = [
         id: 1,
         title: "Guntur Kaaram",
         artist: "Artist 1",
-        cover: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/img/Guntur Kaarma.jpg", // Add cover image
+        cover: "assets/img/Guntur Kaarma.jpg", // Add cover image
         songs: [
             { title: "Amma", src: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/Music/Guntur Karam/Amma.mp3" },
             { title: "Dum Masala", src: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/Music/Guntur Karam/Dum Masala.mp3" },
