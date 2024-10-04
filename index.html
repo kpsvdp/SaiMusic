@@ -12,20 +12,38 @@
         <h1>Music Player</h1>
     </header>
 
-    <div class="album-container">
-        
+    <!-- Album List Section -->
+    <div class="album-container" id="album-container">
         <!-- Repeat this for each album (20 albums) -->
         <div class="album" data-album="1">
             <img src="assets/img/Guntur Kaarma.jpg" alt="Album 1 Cover">
             <h2>Guntur Kaarma</h2>
             <p>Artist Name</p>
-            <button class="play-button" onclick="window.location.href='album.html?id=1'">View Songs</button>
+            <button class="play-button" onclick="viewAlbum(1, 'Guntur Kaarma', 'assets/img/Guntur Kaarma.jpg')">View Songs</button>
         </div>
 
-        <!-- More albums... -->
+        <!-- Add more albums here... -->
+    </div>
+
+    <!-- Song List Section (Initially hidden) -->
+    <div class="song-list" id="song-list" style="display:none;">
+        <h2 id="album-title">Album Title</h2>
+
+        <!-- Album Cover -->
+        <img id="album-cover" src="" alt="Album Cover" style="width: 150px; height: 150px; margin-bottom: 20px;">
+
+        <ul id="songs">
+            <!-- Songs will be injected here by JavaScript -->
+        </ul>
+
+        <audio controls id="audio-player">
+            <source id="audio-source" src="" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button onclick="goBack()">Back to Albums</button>
     </div>
 
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/album.js"></script>
 </body>
 </html>

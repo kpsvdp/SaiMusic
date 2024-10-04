@@ -1,69 +1,58 @@
-// js/script.js
-
-// List of albums and songs
-const albums = [
-    {
-        id: 1,
-        title: "Guntur Kaaram",
-        artist: "Artist 1",
-        cover: "images/album1.jpg", // Add cover image
+// Sample album data with songs (You can replace this with dynamic data or fetch from a server)
+const albums = {
+    1: {
+        title: "Guntur Kaarma",
+        cover: "assets/img/Guntur Kaarma.jpg",
         songs: [
-            { title: "AMMA", src: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/Music/Guntur Karam/Amma.mp3" },
-            { title: "Song 2", src: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/Music/Guntur Karam/Amma.mp3" },
-            { title: "Song 3", src: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/Music/Guntur Karam/Amma.mp3" },
-            { title: "Song 4", src: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/Music/Guntur Karam/Amma.mp3" },
-            { title: "Song 5", src: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/Music/Guntur Karam/Amma.mp3" },
-            { title: "Song 6", src: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/Music/Guntur Karam/Amma.mp3" }
-        ]
-    },
-
-    {
-        id: 2,
-        title: "Album 2",
-        artist: "Artist 2",
-        songs: [
-            { title: "Song 1", src: "music/album2/song1.mp3" },
-            { title: "Song 2", src: "music/album2/song2.mp3" },
-            { title: "Song 3", src: "music/album2/song3.mp3" },
-            { title: "Song 4", src: "music/album2/song4.mp3" },
-            { title: "Song 5", src: "music/album2/song5.mp3" },
-            { title: "Song 6", src: "music/album2/song6.mp3" }
+            { title: "Amma", url: "assets/Music/Guntur Karam/Amma.mp3" },
+            { title: "Song 2", url: "assets/music/song2.mp3" },
+            { title: "Song 3", url: "assets/music/song3.mp3" },
+            { title: "Song 4", url: "assets/music/song4.mp3" },
+            { title: "Song 5", url: "assets/music/song5.mp3" },
+            { title: "Song 6", url: "assets/music/song6.mp3" }
         ]
     }
-    
-    // Add 19 more albums in a similar format
-];
+    // Add more albums here...
+};
 
+// Function to display album songs
+function viewAlbum(albumId, albumTitle, albumCover) {
+    // Hide album list
+    document.getElementById("album-container").style.display = "none";
 
-function showSongs(albumId) {
-    const album = albums.find(a => a.id === albumId);
-    
-    if (album) {
-        // Update album title
-        document.getElementById('album-title').innerText = album.title;
+    // Show song list
+    document.getElementById("song-list").style.display = "block";
 
-        // Update album cover
-        document.getElementById('album-cover').src = album.cover;
+    // Set album title and cover
+    document.getElementById("album-title").textContent = albumTitle;
+    document.getElementById("album-cover").src = albumCover;
 
-        const songList = document.getElementById('songs');
-        songList.innerHTML = '';
+    // Get songs for the selected album
+    const songList = albums[albumId].songs;
+    const songUl = document.getElementById("songs");
+    songUl.innerHTML = ""; // Clear any previous songs
 
-        // Populate songs
-        album.songs.forEach((song, index) => {
-            const li = document.createElement('li');
-            li.innerText = song.title;
-            li.onclick = () => playSong(song.src, album.title, song.title);
-            songList.appendChild(li);
-        });
-
-        // Display song list
-        document.getElementById('song-list').style.display = 'block';
-    }
+    // Inject song items
+    songList.forEach((song, index) => {
+        const li = document.createElement("li");
+        li.textContent = song.title;
+        li.addEventListener("click", () => playSong(song.url));
+        songUl.appendChild(li);
+    });
 }
 
-function playSong(src, albumTitle, songTitle) {
-    document.getElementById('audio-source').src = src;
-    const audioPlayer = document.getElementById('audio-player');
+// Function to play the selected song
+function playSong(songUrl) {
+    const audioSource = document.getElementById("audio-source");
+    const audioPlayer = document.getElementById("audio-player");
+
+    audioSource.src = songUrl;
     audioPlayer.load();
     audioPlayer.play();
+}
+
+// Function to go back to the album list
+function goBack() {
+    document.getElementById("song-list").style.display = "none";
+    document.getElementById("album-container").style.display = "block";
 }
