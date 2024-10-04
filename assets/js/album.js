@@ -4,14 +4,14 @@ const albums = [
         id: 1,
         title: "Guntur Kaaram",
         artist: "Artist 1",
-        cover: "/img/Guntur Kaarma.jpg", // Add cover image
+        cover: url("/img/Guntur Kaarma.jpg"), // Add cover image
         songs: [
-            { title: "Amma", src: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/Music/Guntur Karam/Amma.mp3" },
-            { title: "Dum Masala", src: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/Music/Guntur Karam/Dum Masala.mp3" },
-            { title: "Kurchi Madathapetti", src: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/Music/Guntur Karam/Kurchi Madathapetti.mp3" },
-            { title: "Mawaa Enthaina", src: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/Music/Guntur Karam/Mawaa Enthaina.mp3" },
-            { title: "Oh My Baby", src: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/Music/Guntur Karam/Oh My Baby.mp3" },
-            { title: "Ramana Aei", src: "/Users/kpsvdprashanth/Downloads/HTML & CSS/Music Player/assets/Music/Guntur Karam/Ramana Aei.mp3" }
+            { title: "Amma", src: "/assets/Music/Guntur Karam/Amma.mp3" },
+            { title: "Dum Masala", src: "/assets/Music/Guntur Karam/Dum Masala.mp3" },
+            { title: "Kurchi Madathapetti", src: "/assets/Music/Guntur Karam/Kurchi Madathapetti.mp3" },
+            { title: "Mawaa Enthaina", src: "assets/Music/Guntur Karam/Mawaa Enthaina.mp3" },
+            { title: "Oh My Baby", src: "assets/Music/Guntur Karam/Oh My Baby.mp3" },
+            { title: "Ramana Aei", src: "assets/Music/Guntur Karam/Ramana Aei.mp3" }
         ]
     },
     // Add more albums in a similar format
