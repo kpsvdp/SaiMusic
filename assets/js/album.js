@@ -1,5 +1,3 @@
-// js/album.js
-
 // List of albums and songs (with album cover images)
 const albums = [
     {
